@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Header = () => {
     return (
 
@@ -6,11 +8,11 @@ const Header = () => {
             <img src="" alt="imagen logo" />
             <nav>
                 <ul>
-                    <li>Inicio</li>
-                    <li>Dashboard</li>
-                    <li>Login</li>
-                    <li>Register</li>
-                    <li>Register</li>
+                    <li><Link to="/">Inicio</Link></li>
+                    <li><Link to="/dashboard">Dashboard</Link></li>
+                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/register">Register</Link></li>
+                    <li><Link to="/*"></Link></li>
                     <button>Cerrar sesion</button>
                 </ul>
             </nav>
