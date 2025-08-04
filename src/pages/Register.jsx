@@ -5,6 +5,9 @@ const Register = () => {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
+    const [succes, setSucces] = useState("")
+
 
     const handleUsername = (e) => { // 1ra forma de capturar input y actualizar su valor, solo invocando handle...
         setUsername(e.target.value)
@@ -15,13 +18,23 @@ const Register = () => {
     // para Password usamos  // 3ra. funcion en linea del onChange, si solo se busca actualizar su valor conviene esto
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault() // previene refresh
+        setError("")
+        setSucces("")
+
+        // para validacion  y prevenir error
+        if (!username || !email || !password) {   // si no hay username, o no hay email, o no hay password ejecuta...
+            setError("debes completar los campos")
+           
+            return
+        }
         const newUser = {
             username, // username: username, // si el nombre del estado es el mismo puede usarse directamente 
             email, // email: email, // si el nombre del estado es el mismo puede usarse directamente 
             password //password: password, // si el nombre del estado es el mismo puede usarse directamente 
         }
         console.log(newUser) // vemos el objeto creado en newUser
+        setSucces("Registrado con exito")
 
         //limpiamos estados // luego vamos a cada input para limpiar el valor de los input rellenados 
         setUsername("")
@@ -61,6 +74,12 @@ const Register = () => {
                         </div>
                         <button>Ingresar</button>
                     </form>
+                    {
+                        error && <p style={{ color: "red" }}> <strong>{error}</strong> </p>
+                    }
+                    {
+                        succes && <p style={{ color: "green" }}> <strong>{succes}</strong> </p>
+                    }
                 </section>
             </Layout>
         </>
