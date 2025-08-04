@@ -39,7 +39,7 @@ const Register = () => {
         //limpiamos estados // luego vamos a cada input para limpiar el valor de los input rellenados 
         setUsername("")
         setEmail("")
-        setPassword("")
+        setPassword("") 
 
     }
     return (

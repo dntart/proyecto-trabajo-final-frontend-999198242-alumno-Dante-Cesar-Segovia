@@ -1,6 +1,20 @@
 import { Layout } from "../components/Layout"
+import { useEffect } from "react"
+
 
 const Home = () => {
+
+    const fetchingProducts = async () => {
+        const response = await fetch("https://fakestoreapi.com/products", { method: "GET" }) // aclaramos con method:GET que traemoss info, repasar crud
+        const data = await response.json() // trasnform json a js
+        console.log(data)
+    }
+
+    // useEffect sirve para ejecutar una funcion en un momento especifico
+    useEffect( () => {
+            fetchingProducts()
+        }, [] )
+
     return (
         <>
             <Layout background="red">
@@ -37,7 +51,7 @@ const Home = () => {
 
             </Layout>
 
-            </>
-            )
+        </>
+    )
 }
-            export {Home}
+export { Home }
