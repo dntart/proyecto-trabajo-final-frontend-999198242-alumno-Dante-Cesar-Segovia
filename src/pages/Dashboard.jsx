@@ -5,9 +5,18 @@ const Dashboard = () => {
     const [name, setName] = useState()
     const [price, setPrice] = useState()
     const [description, setDescription] = useState()
+    const [error, setError] = useState(null)
+
 
     const handleSubmit = async (e) => {      // para agregar producto
         e.preventDefault()
+
+        if (!name || !price || !description) {             // validacion:prevenimos campos vacios
+            setError("debes completar todos los campos")
+            return                             // este return detiene el codigo si se cumple la condicion
+        }
+
+
 
         const newProduct = {
             id: crypto.randomUUID(),   // metodo mas usado para dar un id que que no se repita
@@ -22,7 +31,7 @@ const Dashboard = () => {
         try {
             const response = await fetch('https://fakestoreapi.com/products', { // este formato viene en la API *(en la web)
                 method: 'POST',                                       // metodo de envio ENVIAR POST
-                headers: { 'Content-Type': 'application/json' },    // le decimos a la APY que va un json 
+                headers: { 'Content-Type': 'application/json' },    // le decimos a la API que va un json 
                 body: JSON.stringify(newProduct)                       // Convertimos el js a json
             })
             const data = await response.json()
@@ -45,40 +54,45 @@ const Dashboard = () => {
     }
 
 
-return (
-    <>
-        <Layout>
-            <h1>Panel de Administración</h1>
+    return (
+        <>
+            <Layout>
+                <h1>Panel de Administración</h1>
 
-            <section>
-                <h2>Cargar nuevo producto</h2>
-                <form onSubmit={handleSubmit} >
-                    <div>
-                        <label>Nombre del producto:</label>
-                        <input type="text" name="nombre"
-                            onChange={(e) => setName(e.target.value)} />
-                    </div>
+                <section>
+                    <h2>Cargar nuevo producto</h2>
+                    <form onSubmit={handleSubmit} >
+                        <div>
+                            <label>Nombre del producto:</label>
+                            <input type="text" name="nombre"
+                                onChange={(e) => setName(e.target.value)}
+                                value={name} />
+                        </div>
 
-                    <div>
-                        <label>Precio:</label>
-                        <input type="number" name="precio"
-                            onChange={(e) => setPrice(e.target.value)} />
-                    </div>
+                        <div>
+                            <label>Precio:</label>
+                            <input type="number" name="precio"
+                                onChange={(e) => setPrice(e.target.value)}
+                                value={price} />
+                        </div>
 
-                    <div>
-                        <label>Descripción:</label>
-                        <textarea name="descripcion" rows="4"
-                            onChange={(e) => setDescription(e.target.value)} />
-                    </div>
+                        <div>
+                            <label>Descripción:</label>
+                            <textarea name="descripcion" rows="4"
+                                onChange={(e) => setDescription(e.target.value)}
+                                value={description} />
+                        </div>
+                        { 
+                            error && <p className="error"><strong>{error}</strong></p>
+                        }
+                        <button>Guardar producto</button>
+                    </form>
 
-                    <button>Guardar producto</button>
-                </form>
 
-
-            </section>
-        </Layout>
-    </>
-)
-    }
+                </section>
+            </Layout>
+        </>
+    )
+}
 
 export { Dashboard }
