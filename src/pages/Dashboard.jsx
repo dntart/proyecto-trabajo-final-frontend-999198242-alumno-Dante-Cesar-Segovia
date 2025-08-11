@@ -6,16 +6,22 @@ const Dashboard = () => {
     const [price, setPrice] = useState()
     const [description, setDescription] = useState()
     const [error, setError] = useState(null)
+    const [product, setProduct] = useState(null)
 
 
     const handleSubmit = async (e) => {      // para agregar producto
         e.preventDefault()
+        setError(null)
 
         if (!name || !price || !description) {             // validacion:prevenimos campos vacios
             setError("debes completar todos los campos")
             return                             // este return detiene el codigo si se cumple la condicion
         }
+        if (name.length < 3) {
+            setError("el nombre debe contener mas de 2 caracteres")
+            return
 
+        }
 
 
         const newProduct = {
@@ -39,7 +45,9 @@ const Dashboard = () => {
             alert("producto enviado con exito")
             console.log(data)
 
-            setName("")  // para limpiar inputs
+            setProduct(data)                   // para mostrar en el dom product && le damos el valor devuelto de la API
+
+            setName("")                       // para limpiar inputs
             setPrice("")
             setDescription("")
         }
@@ -82,13 +90,19 @@ const Dashboard = () => {
                                 onChange={(e) => setDescription(e.target.value)}
                                 value={description} />
                         </div>
-                        { 
+                        {
                             error && <p className="error"><strong>{error}</strong></p>
                         }
                         <button>Guardar producto</button>
                     </form>
 
-
+                    {
+                        product && <div>
+                            <h1>{product.title}</h1>
+                            <p>precio: ${product.price}</p>
+                            <p>descripcion: {product.description}</p>
+                        </div>
+                    }
                 </section>
             </Layout>
         </>

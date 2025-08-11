@@ -3,9 +3,18 @@ import { useEffect } from "react"
 import { useState } from "react"
 
 
+
 const Home = () => {
     const [products, setProducts] = useState([])
     const [user, setUser] = useState(true)
+    const [productToEdit, setProductToEdit] = useState(null) // para editar objeto
+    const [showPopup, setShowPopup] = useState(null)
+    const [titleEdit, setTitleEdit] = useState("")
+    const [priceEdit, setPriceEdit] = useState("")
+    const [descriptionEdit, setDescriptionEdit] = useState("")
+    const [categoryEdit, setCategoryEdit] = useState("")
+    const [imageEdit, setImageEdit] = useState("")
+
 
     const fetchingProducts = async () => {
         const response = await fetch("https://fakestoreapi.com/products", { method: "GET" }) // aclaramos con method:GET que traemoss info, repasar crud
@@ -29,68 +38,104 @@ const Home = () => {
         }
     }
 
+    const handleOpenEdit = (product) => {
+        setShowPopup(true)
+        setProductToEdit(true)
+
+        setTitleEdit(product.title)  // para rellenar los inputs del edit
+        setPriceEdit(product.price)
+        setDescriptionEdit(product.description)
+        setCategoryEdit(product.category)
+        setImageEdit(product.image)
+
+    }
+
     //Peticion al backend para modificar -> metodo PATCH
     const handleUpdate = async (id) => {
         const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(handleUpdate)
-        })   
-
-        }
-
-        return (
-            <>
-                <Layout background="red">
-                    <section>
-                        <h1>Bienvenido a Nuestra Tienda</h1>
-                        <p>Descubrí una selección exclusiva de productos para vos. Calidad, confianza y atención personalizada.</p>
-                    </section>
-
-                    <section>
-                        <h2>¿Por qué elegirnos?</h2>
-                        <ul>
-                            <li>
-                                <h3>Envíos a todo el país</h3>
-                                <p>Recibí tu compra en la puerta de tu casa estés donde estés.</p>
-                            </li>
-                            <li>
-                                <h3>Pagos seguros</h3>
-                                <p>Trabajamos con plataformas que garantizan tu seguridad.</p>
-                            </li>
-                            <li>
-                                <h3>Atención personalizada</h3>
-                                <p>Estamos disponibles para ayudarte en todo momento.</p>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section>
-                        <h2>Nuestros productos</h2>
-                        <p>Elegí entre nuestras categorías más populares.</p>
-                    </section>
-                    <div>
-                        {products.map((product) =>
-                            <div key={product.id}>
-                                <h2> {product.title} </h2>
-                                <img style={{ width: "100px" }} src={product.image} alt={`imagen de ${product.title}`} />
-                                <p>$ {product.price}</p>
-                                <p>{product.description}</p>
-                                <p><strong>{product.category}</strong></p>
-                                {user &&             // los botones solo se muestran si hay usuario logueado (true), en false los botones no deben aparecer
-                                    <div>
-                                        <button onClick={() => handleUpdate(product.id)}>Actualizar</button>
-                                        <button onClick={() => handleDelete(product.id)}>Borrar</button>
-                                    </div>}
-                            </div>
+        })
 
 
-                        )}
-                    </div>
-
-                </Layout>
-
-            </>
-        )
     }
-    export { Home }
+
+    return (
+        <>
+            <Layout background="red">
+                <section>
+                    <h1>Bienvenido a Nuestra Tienda</h1>
+                    <p>Descubrí una selección exclusiva de productos para vos. Calidad, confianza y atención personalizada.</p>
+                </section>
+
+                <section>
+                    <h2>¿Por qué elegirnos?</h2>
+                    <ul>
+                        <li>
+                            <h3>Envíos a todo el país</h3>
+                            <p>Recibí tu compra en la puerta de tu casa estés donde estés.</p>
+                        </li>
+                        <li>
+                            <h3>Pagos seguros</h3>
+                            <p>Trabajamos con plataformas que garantizan tu seguridad.</p>
+                        </li>
+                        <li>
+                            <h3>Atención personalizada</h3>
+                            <p>Estamos disponibles para ayudarte en todo momento.</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Nuestros productos</h2>
+                    <p>Elegí entre nuestras categorías más populares.</p>
+                </section>
+
+                {showPopup &&
+                    <section className="popup-edit">
+                        <h1>Editando producto</h1>
+
+                        <form>
+                            <label>Nombre del producto:</label>
+                            <input type="text" name="title" placeholder="ingrese el nombre del producto" value={titleEdit} />
+                            <label>Precio:</label>
+                            <input type="number" name="price" placeholder="ingrese el precio" value={priceEdit}/>
+                            <label>Descripcion:</label>
+                            <textarea name="description" placeholder="ingrese una descripcion" value={descriptionEdit}></textarea>
+                            <label>Categoria:</label>
+                            <input type="text" name="category" placeholder="ingrese una categoria" value={categoryEdit} />
+                            <label >Imagen</label>
+                            <input type="text" name="image" placeholder="coloque la url de una imagen" value={imageEdit} />
+                        </form>
+
+                        <button >Guardar cambios</button>
+                        <button onClick={() => setShowPopup(null)}>Cerrar</button>
+                    </section>
+                }
+
+                <div>
+                    {products.map((product) =>
+                        <div key={product.id}>
+                            <h2> {product.title} </h2>
+                            <img style={{ width: "100px" }} src={product.image} alt={`imagen de ${product.title}`} />
+                            <p>$ {product.price}</p>
+                            <p>{product.description}</p>
+                            <p><strong>{product.category}</strong></p>
+                            {user &&             // los botones solo se muestran si hay usuario logueado (true), en false los botones no deben aparecer
+                                <div>
+                                    <button onClick={() => handleOpenEdit(product)}>Actualizar</button>
+                                    <button onClick={() => handleDelete(product.id)}>Borrar</button>
+                                </div>}
+                        </div>
+
+
+                    )}
+                </div>
+
+            </Layout>
+
+        </>
+    )
+}
+export { Home }
