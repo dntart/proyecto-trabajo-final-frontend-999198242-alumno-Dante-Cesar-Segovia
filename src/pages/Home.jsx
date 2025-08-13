@@ -40,26 +40,54 @@ const Home = () => {
 
     const handleOpenEdit = (product) => {
         setShowPopup(true)
-        setProductToEdit(true)
+        setProductToEdit(product)
 
-        setTitleEdit(product.title)  // para rellenar los inputs del edit
+        setTitleEdit(product.title)  // para importar los inputs con los datos del API 
         setPriceEdit(product.price)
         setDescriptionEdit(product.description)
         setCategoryEdit(product.category)
         setImageEdit(product.image)
-
     }
 
-    //Peticion al backend para modificar -> metodo PATCH
-    const handleUpdate = async (id) => {
-        const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(handleUpdate)
-        })
+    // vinculacion de nuevos valores de inputs y peticion al fetch para enviar lo editado
+    const handleUpdate = async (e) => {
+        e.preventDefault()
 
+        const updatedProduct = {  // array modificado con onChange
+            id: productToEdit.id,
+            title: titleEdit,
+            price: Number(priceEdit),
+            description: descriptionEdit,
+            category: categoryEdit,
+            image: imageEdit
+        }
 
+        //Peticion al backend para modificar -> metodo PUT/PATCH, PUT cambia y crea, PATCH solo cambia
+
+        try {
+            const response = await fetch(`https://fakestoreapi.com/products/${productToEdit.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedProduct)
+            })
+            if (response.ok) {
+                const data = await response.json()
+                setProducts(prevProducts =>              // setProducts -> nuevo valor
+                    prevProducts.map((product) =>
+                        product.id === productToEdit.id  // condicion si array viejo es igual a array nuevo
+                            ? data                      // data el array nuevo es el nuevo valor setProducts
+                            : product                   // sino es igual conseva el valor viejo
+                    )
+                )
+            }
+            setShowPopup(false)
+        } catch (error) {
+            console.log(error)
+        }
     }
+
 
     return (
         <>
@@ -96,21 +124,32 @@ const Home = () => {
                     <section className="popup-edit">
                         <h1>Editando producto</h1>
 
-                        <form>
+                        <form onSubmit={handleUpdate}>
                             <label>Nombre del producto:</label>
-                            <input type="text" name="title" placeholder="ingrese el nombre del producto" value={titleEdit} />
+                            <input type="text" name="title" placeholder="ingrese el nombre del producto"
+                                value={titleEdit} //  p ver lo mismo que en la API en el input
+                                onChange={(e) => setTitleEdit(e.target.value)} /> {/* para poder editar ese input*/}
                             <label>Precio:</label>
-                            <input type="number" name="price" placeholder="ingrese el precio" value={priceEdit}/>
+                            <input type="number" name="price" placeholder="ingrese el precio"
+                                value={priceEdit}
+                                onChange={(e) => setPriceEdit(e.target.value)} />
                             <label>Descripcion:</label>
-                            <textarea name="description" placeholder="ingrese una descripcion" value={descriptionEdit}></textarea>
+                            <textarea name="description" placeholder="ingrese una descripcion"
+                                value={descriptionEdit}
+                                onChange={(e) => setDescriptionEdit(e.target.value)}></textarea>
                             <label>Categoria:</label>
-                            <input type="text" name="category" placeholder="ingrese una categoria" value={categoryEdit} />
+                            <input type="text" name="category" placeholder="ingrese una categoria"
+                                value={categoryEdit}
+                                onChange={(e) => setCategoryEdit(e.target.value)} />
                             <label >Imagen</label>
-                            <input type="text" name="image" placeholder="coloque la url de una imagen" value={imageEdit} />
+                            <input type="text" name="image" placeholder="coloque la url de una imagen"
+                                value={imageEdit}
+                                onChange={(e) => setImageEdit(e.target.value)} />
+                            <button >Guardar cambios</button> {/*2 opciones a) o dentro del <form onSubmit={handle..} o por fuera con un onClick={onClick} */}
                         </form>
 
-                        <button >Guardar cambios</button>
-                        <button onClick={() => setShowPopup(null)}>Cerrar</button>
+
+                        <button onClick={() => setShowPopup(null)}>Cerrar</button> {/* lo dejo por si el user entra y se arrepiente de editar puede salir sin editar */}
                     </section>
                 }
 
@@ -136,6 +175,7 @@ const Home = () => {
             </Layout>
 
         </>
+
     )
 }
 export { Home }
