@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
+import { useAuth } from "../context/userContext"      // contexto importado
 
 const Header = () => {
-    const [user, setUser] = useState(true)
+   // const [user, setUser] = useState(false) // antigua forma de manejar el login y logout de las pages
+    const {user, logout} = useAuth()  
 
+    
     return (
 
         <>
@@ -14,7 +17,7 @@ const Header = () => {
                         {user && <>
                             <li><Link to="/">Inicio</Link></li>
                             <li><Link to="/dashboard">Dashboard</Link></li>
-                            <button>Cerrar Sesion</button>
+                            <button onClick={logout}>Cerrar Sesion</button>
 
 
                         </>}
