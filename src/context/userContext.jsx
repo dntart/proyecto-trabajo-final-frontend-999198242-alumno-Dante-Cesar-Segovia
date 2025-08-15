@@ -5,8 +5,17 @@ const UserContext = createContext() // para identificar de que tipo de context e
 const UserProvider = (props) => {            // creamos provider con nomber userProvider, es el componente mayor que envuelve a los otros componentes
     const [user, setUser] = useState(null)
 
-    const login = () => {
-        setUser(true)
+    const login = async (username, password) => {
+       
+       const response = await 
+       fetch('https://fakestoreapi.com/auth/login', {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json'
+             },
+            body: JSON.stringify({username, password})
+        })
+        console.log(response)
     }
     const logout = () => {
         setUser(null)
