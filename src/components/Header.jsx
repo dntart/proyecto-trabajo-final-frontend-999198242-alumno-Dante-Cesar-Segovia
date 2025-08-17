@@ -3,10 +3,14 @@ import { useState } from "react"
 import { useAuth } from "../context/userContext"      // contexto importado
 
 const Header = () => {
-   // const [user, setUser] = useState(false) // antigua forma de manejar el login y logout de las pages
-    const {user, logout} = useAuth()  
+    // const [user, setUser] = useState(false) // antigua forma de manejar el login y logout de las pages
+    const { user, logout } = useAuth()
 
-    
+    const handleLogout = () => {
+        logout()
+    }
+
+
     return (
 
         <>
@@ -17,7 +21,7 @@ const Header = () => {
                         {user && <>
                             <li><Link to="/">Inicio</Link></li>
                             <li><Link to="/dashboard">Dashboard</Link></li>
-                            <button onClick={logout}>Cerrar Sesion</button>
+                            <button onClick={handleLogout}>Cerrar Sesion</button>
 
 
                         </>}
@@ -27,7 +31,7 @@ const Header = () => {
 
                         </>}
                     </ul>
-                    
+
                 </nav>
             </header>
         </>
