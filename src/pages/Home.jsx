@@ -174,7 +174,7 @@ const Home = () => {
                             <p className={styles.category}>
                                 <strong>{product.category}</strong></p>
                             {user &&             // los botones solo se muestran si hay usuario logueado (true), en false los botones no deben aparecer
-                                <div className={styles.button}>
+                                <div className={styles.buttons}>
                                     <button
                                         onClick={() => handleOpenEdit(product)}>Actualizar</button>
                                     <button
