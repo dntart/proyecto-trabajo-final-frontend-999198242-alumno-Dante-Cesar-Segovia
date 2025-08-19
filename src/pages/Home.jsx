@@ -162,7 +162,7 @@ const Home = () => {
                                 <img
                                     className={styles.image}
                                     src={product.image} alt={`imagen de ${product.title}`} />
-                                </div>
+                            </div>
                             <h2
                                 className={styles.title}>
                                 {product.title} </h2>
@@ -177,8 +177,10 @@ const Home = () => {
                             {user &&             // los botones solo se muestran si hay usuario logueado (true), en false los botones no deben aparecer
                                 <div className={styles.buttons}>
                                     <button
-                                        onClick={() => handleOpenEdit(product)}>Actualizar</button>
+                                        className={styles.editButton}
+                                        onClick={() => handleOpenEdit(product)}>Editar</button>
                                     <button
+                                        className={styles.deleteButton}
                                         onClick={() => handleDelete(product.id)}>Borrar</button>
                                 </div>}
                         </div>
