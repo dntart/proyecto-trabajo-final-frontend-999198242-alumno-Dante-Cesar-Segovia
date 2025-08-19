@@ -9,3 +9,13 @@
     box-sizing: border-box;
 }
 
+.contLogo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    object-fit: contain;
+}
+
+.contLogo img {
+    height: 80%;
+}
