@@ -1,6 +1,7 @@
 import { Layout } from "../components/Layout"
 import { useEffect } from "react"
 import { useState } from "react"
+import styles from "../styles/pages/Home.module.css" // ccs module funcionando
 
 
 
@@ -153,10 +154,12 @@ const Home = () => {
                     </section>
                 }
 
-                <div>
+                <div className={styles.productsGrid}>
                     {products.map((product) =>
-                        <div key={product.id}>
-                            <h2> {product.title} </h2>
+                        <div                         
+                         key={product.id}>
+                            <h2 className={styles.title}>
+                                 {product.title} </h2>
                             <img style={{ width: "100px" }} src={product.image} alt={`imagen de ${product.title}`} />
                             <p>$ {product.price}</p>
                             <p>{product.description}</p>

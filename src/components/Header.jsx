@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { useAuth } from "../context/userContext"      // contexto importado
-import styles from "../styles/components/Header.module.css"
+import styles from "../styles/components/Header.module.css" //css module 
 
 const Header = () => {
     // const [user, setUser] = useState(false) // antigua forma de manejar el login y logout de las pages
