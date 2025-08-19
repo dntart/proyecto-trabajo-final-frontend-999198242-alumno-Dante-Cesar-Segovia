@@ -154,20 +154,31 @@ const Home = () => {
                     </section>
                 }
 
-                <div className={styles.productsGrid}> 
+                <div className={styles.productsGrid}>
                     {products.map((product) =>
                         <div className={styles.productCont} //cont de cada producto
-                            key={product.id}>
-                            <h2 className={styles.title}>
+                            key={product.id}> 
+                            <img
+                                className={styles.image}
+                                src={product.image} alt={`imagen de ${product.title}`} />
+                            <h2
+                                className={styles.title}>
                                 {product.title} </h2>
-                            <img style={{ width: "100px" }} src={product.image} alt={`imagen de ${product.title}`} />
-                            <p>$ {product.price}</p>
-                            <p>{product.description}</p>
-                            <p><strong>{product.category}</strong></p>
+                           
+                            <p
+                                className={styles.price}>
+                                $ {product.price}</p>
+                            <p
+                                className={styles.description}>
+                                {product.description}</p>
+                            <p className={styles.category}>
+                                <strong>{product.category}</strong></p>
                             {user &&             // los botones solo se muestran si hay usuario logueado (true), en false los botones no deben aparecer
-                                <div>
-                                    <button onClick={() => handleOpenEdit(product)}>Actualizar</button>
-                                    <button onClick={() => handleDelete(product.id)}>Borrar</button>
+                                <div className={styles.button}>
+                                    <button
+                                        onClick={() => handleOpenEdit(product)}>Actualizar</button>
+                                    <button
+                                        onClick={() => handleDelete(product.id)}>Borrar</button>
                                 </div>}
                         </div>
 
