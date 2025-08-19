@@ -154,12 +154,12 @@ const Home = () => {
                     </section>
                 }
 
-                <div className={styles.productsGrid}>
+                <div className={styles.productsGrid}> 
                     {products.map((product) =>
-                        <div                         
-                         key={product.id}>
+                        <div className={styles.productCont} //cont de cada producto
+                            key={product.id}>
                             <h2 className={styles.title}>
-                                 {product.title} </h2>
+                                {product.title} </h2>
                             <img style={{ width: "100px" }} src={product.image} alt={`imagen de ${product.title}`} />
                             <p>$ {product.price}</p>
                             <p>{product.description}</p>
