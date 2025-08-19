@@ -157,14 +157,15 @@ const Home = () => {
                 <div className={styles.productsGrid}>
                     {products.map((product) =>
                         <div className={styles.productCont} //cont de cada producto
-                            key={product.id}> 
-                            <img
-                                className={styles.image}
-                                src={product.image} alt={`imagen de ${product.title}`} />
+                            key={product.id}>
+                            <div className={styles.contImage}>
+                                <img
+                                    className={styles.image}
+                                    src={product.image} alt={`imagen de ${product.title}`} />
+                                </div>
                             <h2
                                 className={styles.title}>
                                 {product.title} </h2>
-                           
                             <p
                                 className={styles.price}>
                                 $ {product.price}</p>
