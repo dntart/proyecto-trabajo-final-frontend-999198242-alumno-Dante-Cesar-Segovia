@@ -22,13 +22,13 @@ const Header = () => {
                         {user && <>
                             <li><Link to="/">Inicio</Link></li>
                             <li><Link to="/dashboard">Dashboard</Link></li>
+                            <li><Link to="/About">Sobre nosotros</Link></li>
                             <button onClick={handleLogout}>Cerrar Sesion</button>
-
-
                         </>}
                         {!user && <>
-                            <li><Link to="/login">Login</Link></li>
-                            <li><Link to="/register">Register</Link></li>
+                            <li><Link to="/About">Sobre nosotros</Link></li>
+                            <li><Link to="/login">Iniciar Sesión</Link></li>
+                            <li><Link to="/register">Registrarse</Link></li>
 
                         </>}
                     </ul>
