@@ -28,6 +28,7 @@ const Header = () => {
                             <button onClick={handleLogout}>Cerrar Sesion</button>
                         </>}
                         {!user && <>
+                            <li><Link to="/">Inicio</Link></li>
                             <li><Link to="/About">Sobre nosotros</Link></li>
                             <li><Link to="/login">Iniciar Sesión</Link></li>
                             <li><Link to="/register">Registrarse</Link></li>

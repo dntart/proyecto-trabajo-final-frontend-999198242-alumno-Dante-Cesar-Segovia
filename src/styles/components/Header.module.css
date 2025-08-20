@@ -20,18 +20,16 @@
     height: 80%;
 }
 
-.nav ul{
+.nav ul {
     display: flex;
     gap: 3rem;
-    border: solid blue;
     list-style-type: none;
-    
+
 }
 
 .nav li {
-      color: white;
+    color: white;
     font-weight: 500;
-    border:  solid blue;
-    
-    
+
+
 }

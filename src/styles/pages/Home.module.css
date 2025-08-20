@@ -1,3 +1,45 @@
+
+.contWelcome {
+    text-align: center  ;
+}
+.contWelcome h1{
+    font-size: ;
+}
+.contCaracteristicas {
+    display: flex;
+  
+    width: 100%;
+    gap: 2rem;
+
+
+}
+
+.contCaracteristicas li {
+    
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    list-style-type: none;
+     transition: transform 0.2s ease-in-out;
+}
+
+.contCaracteristicas li:hover {
+    transform: translateY(-3px);
+}
+
+
+.contCaracteristicas h3{
+    font-size: 1.4rem;
+text-align: center;
+}
+
+.contCaracteristicas p{
+text-align: center;
+}
+
+/**/
 .productsGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

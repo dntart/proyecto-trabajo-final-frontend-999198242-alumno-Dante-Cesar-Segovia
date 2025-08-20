@@ -93,14 +93,14 @@ const Home = () => {
     return (
         <>
             <Layout background="red">
-                <section>
+                <section className={styles.contWelcome}>
                     <h1>Bienvenido a Nuestra Tienda</h1>
                     <p>Descubrí una selección exclusiva de productos para vos. Calidad, confianza y atención personalizada.</p>
+                    <h2>¿Por qué elegirnos?</h2>
                 </section>
 
                 <section>
-                    <h2>¿Por qué elegirnos?</h2>
-                    <ul>
+                   <ul className={styles.contCaracteristicas}>
                         <li>
                             <h3>Envíos a todo el país</h3>
                             <p>Recibí tu compra en la puerta de tu casa estés donde estés.</p>
