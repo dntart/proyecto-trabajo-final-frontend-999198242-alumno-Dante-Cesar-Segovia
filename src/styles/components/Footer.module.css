@@ -2,5 +2,20 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem; 
-    border: solid red;
+    padding: 2.5rem;
+    color: #767676;
+   background-color: #1a1623;
+   line-height: 1.5;
+}
+.marca{
+   
+}
+.enlace{
+
+}
+.contacto{
+
+}
+h3 {
+    color: white;
 }
