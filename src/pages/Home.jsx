@@ -100,7 +100,7 @@ const Home = () => {
                 </section>
 
                 <section>
-                   <ul className={styles.contCaracteristicas}>
+                    <ul className={styles.contCaract}>
                         <li>
                             <h3>Envíos a todo el país</h3>
                             <p>Recibí tu compra en la puerta de tu casa estés donde estés.</p>
@@ -115,11 +115,11 @@ const Home = () => {
                         </li>
                     </ul>
                 </section>
-
-                <section>
+                <div className={styles.contSectionTitle}>
                     <h2>Nuestros productos</h2>
                     <p>Elegí entre nuestras categorías más populares.</p>
-                </section>
+                </div>
+
 
                 {showPopup &&
                     <section className="popup-edit">

@@ -1,22 +1,32 @@
 .contWelcome {
     text-align: center;
 }
+
 .contWelcome h1 {
     font-size: 2.4rem;
-    padding: 1.5rem 0;
+    padding: 2rem 0;
 }
+
 .contWelcome p {
     padding: 0 0 1.5rem 0;
     color: #767676;
 }
+
 .contWelcome h2 {
     font-size: 2rem;
     padding: 1.5rem 0;
 }
 
-/**/
+.contSectionTitle {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 3rem 0;
+}
 
-.contCaracteristicas {
+/**/
+.contCaract {
     display: flex;
 
     width: 100%;
@@ -25,7 +35,7 @@
 
 }
 
-.contCaracteristicas li {
+.contCaract li {
 
     background: white;
     padding: 1.5rem;
@@ -36,17 +46,17 @@
     transition: transform 0.2s ease-in-out;
 }
 
-.contCaracteristicas li:hover {
+.contCaract li:hover {
     transform: translateY(-3px);
 }
 
 
-.contCaracteristicas h3 {
+.contCaract h3 {
     font-size: 1.4rem;
     text-align: center;
 }
 
-.contCaracteristicas p {
+.contCaract p {
     text-align: center;
 }
 
