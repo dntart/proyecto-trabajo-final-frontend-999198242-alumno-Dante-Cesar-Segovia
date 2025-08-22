@@ -54,7 +54,7 @@ const Login = () => {
                                 value={password}
                             />
                         </div>
-                        <button >Ingresar</button>
+                        <button className={styles.contButton}>Ingresar</button>
                     </form>
                 </section>
             </Layout>

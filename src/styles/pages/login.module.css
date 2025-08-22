@@ -6,7 +6,7 @@
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    text-align: center;
 }
 
 .contLogin h1 {
@@ -33,4 +33,20 @@
     box-sizing: border-box;
     border-radius: 5px;
     border: solid rgb(228, 228, 228) 1px;
+}
+
+.contButton {
+    height: 4rem;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: bold;
+    background-color: #eb6427;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+
+}
+.contButton:hover{
+     transform: translateY(-1px);
 }
