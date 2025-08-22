@@ -11,44 +11,42 @@ const Login = () => {
     const navigate = useNavigate()
 
     const { login } = useAuth()   //{login} es funcion async de context.jsx que se comunica con back mediante fetch
-                                       // distinto de Login, funcion para manejar el login e inputs de este archivo
+    // distinto de Login, funcion para manejar el login e inputs de este archivo
 
     const handleLogin = async (e) => {   //funcion que maneja los inputs
         e.preventDefault()
-        
-      const isLogin =  await login(username, password)          // recibimos de login context y su peticion fetch
-        
-      if (isLogin) {
-        console.log("logueado con exito")
-        setUsername("")
-        setPassword("")
-        navigate("/ ")
-      }else{
-        console.error("nombre de usuario o password invalido")
-      }
+
+        const isLogin = await login(username, password)          // recibimos de login context y su peticion fetch
+
+        if (isLogin) {
+            console.log("logueado con exito")
+            setUsername("")
+            setPassword("")
+            navigate("/ ")
+        } else {
+            console.error("nombre de usuario o password invalido")
+        }
 
     }
 
     return (
         <>
             <Layout>
-                 <section  className= {styles.contLogin}>
-                <h1 >Inicia sesión</h1>
-
-               
-                    <h2>Hola, bienvenido de nuevo</h2>
-
+                <section className={styles.contLogin}>
+                    <h1 >Inicia sesión</h1>
+                    <p>Hola, bienvenido de nuevo</p>
                     <form onSubmit={handleLogin}>
-                        <div>
+                        <div className={styles.contCredenciales}>
                             <p> username: johnd  <br /> password: m38rmF$</p>
+                            
+                        </div>
+                        <div className={styles.contInputs}>
                             <label>Nombre de usuario</label>
                             <input
                                 type="text"
-                                onChange={(e) => setUsername(e.target.value) } //capturamos el valor en linea
+                                onChange={(e) => setUsername(e.target.value)} //capturamos el valor en linea
                                 value={username}
                             />
-                        </div>
-                        <div>
                             <label>Contraseña:</label>
                             <input
                                 type="password"
