@@ -14,15 +14,15 @@
 .enlace{
 
 }
-.contacto{
-
+.contacto a{
+color:  #eb6427;
 }
 
-h3 {
+footer h3 {
     color: white;
 }
 
-li {
-    
+.enlaces li {
+    color:  #eb6427;
 list-style-type: none;
 }
