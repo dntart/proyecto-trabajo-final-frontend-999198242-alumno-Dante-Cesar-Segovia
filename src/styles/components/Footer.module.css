@@ -1,21 +1,21 @@
-.contFooter{
+.contFooter {
+    height: 16rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem; 
+    gap: 2rem;
     padding: 2.5rem;
     color: #767676;
-   background-color: #1a1623;
-   line-height: 1.5;
-   
-}
-.marca{
-   
-}
-.enlace{
+    background-color: #1a1623;
+    line-height: 2;
 
 }
-.contacto a{
-color:  #eb6427;
+
+.marca {}
+
+.enlace {}
+
+.contacto a {
+    color: #eb6427;
 }
 
 footer h3 {
@@ -23,6 +23,6 @@ footer h3 {
 }
 
 .enlaces li {
-    color:  #eb6427;
-list-style-type: none;
+    color: #eb6427;
+    list-style-type: none;
 }
