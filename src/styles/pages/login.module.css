@@ -47,6 +47,10 @@
     transition: transform 0.2s ease-in-out;
 
 }
-.contButton:hover{
-     transform: translateY(-1px);
+
+.contButton:hover {
+    transform: translateY(-1px);
+    background-color: #e04a04;
+    cursor: pointer;
+
 }

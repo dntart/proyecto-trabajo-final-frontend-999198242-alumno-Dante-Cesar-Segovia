@@ -37,6 +37,7 @@ const Login = () => {
                     <p>Hola, bienvenido de nuevo</p>
                     <form onSubmit={handleLogin}>
                         <div className={styles.contCredenciales}>
+                            <p><strong>Credenciales de prueba</strong></p>
                             <p> username: johnd  <br /> password: m38rmF$</p>
                             
                         </div>
@@ -44,12 +45,14 @@ const Login = () => {
                             <label>Nombre de usuario</label>
                             <input
                                 type="text"
+                                placeholder="Ingresa tu nombre de usuario"
                                 onChange={(e) => setUsername(e.target.value)} //capturamos el valor en linea
                                 value={username}
                             />
                             <label>Contraseña:</label>
                             <input
                                 type="password"
+                                placeholder="Ingresa tu contraseña"
                                 onChange={(e) => setPassword(e.target.value)} //capturamos el valor en linea
                                 value={password}
                             />
