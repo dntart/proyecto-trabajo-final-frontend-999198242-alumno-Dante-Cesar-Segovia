@@ -17,7 +17,8 @@
     background: white;
     padding: 1.5rem;
     border-radius: 12px;
-    border: solid rgb(228, 228, 228) 1px;    /*LINEAS GRISES PARA DIVS*/
+    border: solid rgb(228, 228, 228) 1px;
+    /*LINEAS GRISES PARA DIVS*/
     text-align: center;
 
 }
@@ -25,10 +26,11 @@
 .contInputs label {
     font-weight: bold;
 }
-.contInputs input{
+
+.contInputs input {
     display: block;
     width: 100%;
     box-sizing: border-box;
     border-radius: 5px;
-        border: solid rgb(228, 228, 228) 1px;   
+    border: solid rgb(228, 228, 228) 1px;
 }
