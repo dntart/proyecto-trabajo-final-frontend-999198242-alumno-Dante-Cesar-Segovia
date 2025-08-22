@@ -13,6 +13,7 @@
 }
 
 .contWelcome h2 {
+
     font-size: 2rem;
     padding: 1.5rem 0;
 }
@@ -31,8 +32,9 @@
 
     width: 100%;
     gap: 2rem;
-
-
+}
+.contCaract h3{
+    color: #333;
 }
 
 .contCaract li {

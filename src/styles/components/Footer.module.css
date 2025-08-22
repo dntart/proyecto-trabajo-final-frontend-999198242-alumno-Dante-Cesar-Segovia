@@ -6,6 +6,7 @@
     color: #767676;
    background-color: #1a1623;
    line-height: 1.5;
+   
 }
 .marca{
    
@@ -16,6 +17,12 @@
 .contacto{
 
 }
+
 h3 {
     color: white;
+}
+
+li {
+    
+list-style-type: none;
 }

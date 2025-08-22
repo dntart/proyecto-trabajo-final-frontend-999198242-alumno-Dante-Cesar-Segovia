@@ -92,7 +92,7 @@ const Home = () => {
 
     return (
         <>
-            <Layout background="red">
+            <Layout >
                 <section className={styles.contWelcome}>
                     <h1>Bienvenido a Nuestra Tienda</h1>
                     <p>Descubrí una selección exclusiva de productos para vos. Calidad, confianza y atención personalizada.</p>
