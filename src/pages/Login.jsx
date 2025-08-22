@@ -3,6 +3,7 @@ import { Layout } from "../components/Layout";
 import { useAuth } from "../context/userContext"; // importamos contexto
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "../styles/pages/login.module.css"
 
 const Login = () => {
     const [username, setUsername] = useState("")    // creado para capturar inputs
@@ -31,9 +32,10 @@ const Login = () => {
     return (
         <>
             <Layout>
+                 <section  className= {styles.contLogin}>
                 <h1 >Inicia sesión</h1>
 
-                <section>
+               
                     <h2>Hola, bienvenido de nuevo</h2>
 
                     <form onSubmit={handleLogin}>
