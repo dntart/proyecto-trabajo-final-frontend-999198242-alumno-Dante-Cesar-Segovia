@@ -6,25 +6,40 @@
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+
 }
 
 .contLogin h1 {
     font-size: 2.4rem;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.contLogin p {
+    text-align: center;
 }
 
 .contCredenciales {
+    width: 100%;
+    box-sizing: border-box;
     background: white;
-    padding: 1.5rem;
+    margin-top: 2rem;
     border-radius: 12px;
     border: solid rgb(228, 228, 228) 1px;
     /*LINEAS GRISES PARA DIVS*/
     text-align: center;
+    padding: 1.5rem;
 
+    line-height: 1.8;
+}
+
+.contInputs {
+    margin: 3rem 0;
 }
 
 .contInputs label {
     font-weight: bold;
+    text-align: left;
 }
 
 .contInputs input {
@@ -33,18 +48,23 @@
     box-sizing: border-box;
     border-radius: 5px;
     border: solid rgb(228, 228, 228) 1px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+
+
 }
 
 .contButton {
-    height: 4rem;
+    height: 3.5rem;
     width: 100%;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: large;
     font-weight: bold;
     background-color: #eb6427;
     color: white;
     transition: transform 0.2s ease-in-out;
+
 
 }
 

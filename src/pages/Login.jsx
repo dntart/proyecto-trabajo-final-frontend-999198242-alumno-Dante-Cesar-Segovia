@@ -38,7 +38,8 @@ const Login = () => {
                     <form onSubmit={handleLogin}>
                         <div className={styles.contCredenciales}>
                             <p><strong>Credenciales de prueba</strong></p>
-                            <p> username: johnd  <br /> password: m38rmF$</p>
+                            <p> <strong>Usuario: </strong> johnd  <br /> 
+                            <strong>Contraseña: </strong> m38rmF$</p>
                             
                         </div>
                         <div className={styles.contInputs}>
