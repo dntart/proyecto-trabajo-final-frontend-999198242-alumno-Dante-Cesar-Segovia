@@ -1,6 +1,13 @@
+.loginPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+}
 .contLogin {
-    margin: 2rem 0 2rem 0;
-    width: 30rem;
+        margin: 2rem 0 2rem 0;
+    width: 28rem;
     height: 45rem;
     background: white;
     padding: 1.5rem;
@@ -29,12 +36,11 @@
     /*LINEAS GRISES PARA DIVS*/
     text-align: center;
     padding: 1.5rem;
-
     line-height: 1.8;
 }
 
 .contInputs {
-    margin: 3rem 0;
+    margin: 2rem 0;
 }
 
 .contInputs label {
@@ -59,6 +65,7 @@
     width: 100%;
     box-sizing: border-box;
     border-radius: 10px;
+    border: none;
     font-size: large;
     font-weight: bold;
     background-color: #eb6427;
@@ -73,4 +80,25 @@
     background-color: #e04a04;
     cursor: pointer;
 
+}
+
+hr {
+    margin: 2rem 0;
+    border: solid rgb(228, 228, 228) 1px;
+}
+
+.contLinkRegister {
+    margin: 1rem 0 2rem 0;
+
+
+}
+
+.contWordRegister {
+    font-weight: bold;
+
+}
+
+.contWordRegister {
+    color: #e04a04;
+    cursor: pointer;
 }

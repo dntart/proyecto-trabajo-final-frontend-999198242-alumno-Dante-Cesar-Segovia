@@ -31,8 +31,7 @@ const Login = () => {
 
     return (
         <>
-            <Layout>
-                <section className={styles.contLogin}>
+            <Layout><div className={styles.loginPage}><section className={styles.contLogin}>
                     <h1 >Inicia sesión</h1>
                     <p>Hola, bienvenido de nuevo</p>
                     <form onSubmit={handleLogin}>
@@ -61,8 +60,9 @@ const Login = () => {
                         <button className={styles.contButton}>Ingresar</button>
                     </form>
                     <hr />
-                    <p>¿No tienes una cuenta? <Link to={"/register"} >Registrate</Link> </p>
-                </section>
+                    <p className={styles.contLinkRegister}>¿No tienes una cuenta? <Link className={styles.contWordRegister} to={"/register"} >Registrate</Link> </p>
+                </section></div>
+                
             </Layout>
         </>
     )
