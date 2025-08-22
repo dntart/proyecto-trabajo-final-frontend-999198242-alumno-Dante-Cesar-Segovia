@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom"; // ver si lo agregue sin darle utilidad
+import { Link, useSearchParams } from "react-router-dom"; // ver si lo agregue sin darle utilidad
 import { Layout } from "../components/Layout";
 import { useAuth } from "../context/userContext"; // importamos contexto
 import { useState } from "react";
@@ -60,6 +60,8 @@ const Login = () => {
                         </div>
                         <button className={styles.contButton}>Ingresar</button>
                     </form>
+                    <hr />
+                    <p>¿No tienes una cuenta? <Link to={"/register"} >Registrate</Link> </p>
                 </section>
             </Layout>
         </>

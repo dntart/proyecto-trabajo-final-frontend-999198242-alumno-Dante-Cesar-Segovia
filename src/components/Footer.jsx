@@ -13,9 +13,9 @@ const Footer = () => {
                 <h3> Enlaces útiles</h3>
                 <ul>
                     <li><Link to={"/"}>Inicio</Link></li>
-                    <li><Link to={"about"}>Sobre Nosotros</Link></li>
-                    <li><Link to={"login"}>Iniciar Sesión</Link></li>
-                    <li><Link to={"register"}>Registrarse</Link></li>
+                    <li><Link to={"/about"}>Sobre Nosotros</Link></li>
+                    <li><Link to={"/login"}>Iniciar Sesión</Link></li>
+                    <li><Link to={"/register"}>Registrarse</Link></li>
 
                 </ul>
             </div>
