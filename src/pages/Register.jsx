@@ -1,5 +1,6 @@
 import { Layout } from "../components/Layout";
 import { useState } from "react";
+import styles from "../styles/pages/register.module.css"
 
 const Register = () => {
     const [username, setUsername] = useState("")
@@ -7,6 +8,7 @@ const Register = () => {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
     const [succes, setSucces] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
 
 
     const handleUsername = (e) => { // 1ra forma de capturar input y actualizar su valor, solo invocando handle...
@@ -25,7 +27,7 @@ const Register = () => {
         // para validacion  y prevenir error
         if (!username || !email || !password) {   // si no hay username, o no hay email, o no hay password ejecuta...
             setError("debes completar los campos")
-           
+
             return
         }
         const newUser = {
@@ -39,48 +41,54 @@ const Register = () => {
         //limpiamos estados // luego vamos a cada input para limpiar el valor de los input rellenados 
         setUsername("")
         setEmail("")
-        setPassword("") 
+        setPassword("")
 
     }
     return (
         <>
             <Layout>
-                <h1>Registrate</h1>
+                <div className={styles.registerPage}>
+                    <section className={styles.contRegister}>
+                        <h1>Registrate</h1>
+                        <p>Creá tu cuenta para acceder a todas las</p>
+                        <p>funcionalidades</p>
 
-                <section>
-                    <h2>Hola, bienvenido</h2>
-                    <form onSubmit={handleSubmit}>
-                        <div>
-                            <label>Username:</label>
-                            <input type="text"
-                                onChange={handleUsername}
-                                // onChange={(e) => {setUsername(e.target.value); console.log("holaaa") }}
-                                value={username} // limpiamos input
-                            />
-                        </div>
-                        <div>
-                            <label>Correo electronico:</label>
-                            <input type="text"
-                                onChange={(e) => handleEmail(e)} // opcion 2 repitiendo funcion e invocando handle..
-                                value={email} // limpiamos input
-                            />
-                        </div>
-                        <div>
-                            <label>Contraseña:</label>
-                            <input type="password"
-                                onChange={(e) => setPassword(e.target.value)} // opcion 3 en linea
-                                value={password} // limpiamos input
-                            />
-                        </div>
-                        <button>Ingresar</button>
-                    </form>
-                    {
-                        error && <p style={{ color: "red" }}> <strong>{error}</strong> </p>
-                    }
-                    {
-                        succes && <p style={{ color: "green" }}> <strong>{succes}</strong> </p>
-                    }
-                </section>
+                        <form 
+                        className={styles.contFormRegister}
+                        onSubmit={handleSubmit}>
+                            <div>
+                                <label>Username:</label>
+                                <input type="text"
+                                    onChange={handleUsername}
+                                    // onChange={(e) => {setUsername(e.target.value); console.log("holaaa") }}
+                                    value={username} // limpiamos input
+                                />
+                            </div>
+                            <div>
+                                <label>Correo electronico:</label>
+                                <input type="text"
+                                    onChange={(e) => handleEmail(e)} // opcion 2 repitiendo funcion e invocando handle..
+                                    value={email} // limpiamos input
+                                />
+                            </div>
+                            <div>
+                                <label>Contraseña:</label>
+                                <input type="password"
+                                    onChange={(e) => setPassword(e.target.value)} // opcion 3 en linea
+                                    value={password} // limpiamos input
+                                />
+                            </div>
+                            <button className={styles.contButton}>Ingresar</button>
+                        </form>
+                        {
+                            error && <p style={{ color: "red" }}> <strong>{error}</strong> </p>
+                        }
+                        {
+                            succes && <p style={{ color: "green" }}> <strong>{succes}</strong> </p>
+                        }
+                    </section>
+                </div>
+
             </Layout>
         </>
     )
