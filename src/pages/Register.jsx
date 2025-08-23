@@ -78,6 +78,13 @@ const Register = () => {
                                     value={password} // limpiamos input
                                 />
                             </div>
+                            <div>
+                                <label>Confirmar contraseña:</label>
+                                <input type="password"
+                                    onChange={(e) => setConfirmPassword(e.target.value)} // opcion 3 en linea
+                                    value={confirmPassword} // limpiamos input
+                                />
+                            </div>
                             <button className={styles.contButton}>Ingresar</button>
                         </form>
                         {
