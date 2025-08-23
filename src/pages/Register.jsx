@@ -25,15 +25,19 @@ const Register = () => {
         setSucces("")
 
         // para validacion  y prevenir error
-        if (!username || !email || !password) {   // si no hay username, o no hay email, o no hay password ejecuta...
+        if (!username || !email || !password || !confirmPassword) {   // si no hay username, o no hay email, o no hay password ejecuta...
             setError("debes completar los campos")
-
+            return
+        }
+        if (password != confirmPassword) {
+            setError("Las contraseñas no coinciden")
             return
         }
         const newUser = {
             username, // username: username, // si el nombre del estado es el mismo puede usarse directamente 
             email, // email: email, // si el nombre del estado es el mismo puede usarse directamente 
-            password //password: password, // si el nombre del estado es el mismo puede usarse directamente 
+            password, //password: password, // si el nombre del estado es el mismo puede usarse directamente 
+            confirmPassword
         }
         console.log(newUser) // vemos el objeto creado en newUser
         setSucces("Registrado con exito")
@@ -42,6 +46,7 @@ const Register = () => {
         setUsername("")
         setEmail("")
         setPassword("")
+        setConfirmPassword("")
 
     }
     return (
@@ -53,9 +58,9 @@ const Register = () => {
                         <p>Creá tu cuenta para acceder a todas las</p>
                         <p>funcionalidades</p>
 
-                        <form 
-                        className={styles.contFormRegister}
-                        onSubmit={handleSubmit}>
+                        <form
+                            className={styles.contFormRegister}
+                            onSubmit={handleSubmit}>
                             <div>
                                 <label>Username:</label>
                                 <input type="text"
