@@ -101,10 +101,6 @@ hr {
 
 .contWordRegister {
     font-weight: bold;
-
-}
-
-.contWordRegister {
-    color: #e04a04;
+ color: #e04a04;
     cursor: pointer;
 }

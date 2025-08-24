@@ -94,7 +94,7 @@ const Register = () => {
                             </div>
                             <button className={styles.contButton}>Ingresar</button>
                             <hr />
-                            <p>¿Ya tenés una cuenta? <Link to={"/login"} >Iniciar sesión</Link></p>
+                            <p>¿Ya tenés una cuenta? <Link className={contWordLogin} to={"/login"} >Iniciar sesión</Link></p>
                         </form>
                         {
                             error && <p style={{ color: "red" }}> <strong>{error}</strong> </p>
