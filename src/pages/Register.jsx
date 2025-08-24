@@ -1,6 +1,8 @@
 import { Layout } from "../components/Layout";
 import { useState } from "react";
 import styles from "../styles/pages/register.module.css"
+import { Link } from "react-router-dom";
+
 
 const Register = () => {
     const [username, setUsername] = useState("")
@@ -91,6 +93,8 @@ const Register = () => {
                                 />
                             </div>
                             <button className={styles.contButton}>Ingresar</button>
+                            <hr />
+                            <p>¿Ya tenés una cuenta? <Link to={"/login"} >Iniciar sesión</Link></p>
                         </form>
                         {
                             error && <p style={{ color: "red" }}> <strong>{error}</strong> </p>
