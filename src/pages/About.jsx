@@ -6,13 +6,12 @@ import styles from "../styles/pages/aboutUs.module.css"
 const About = () => {
     return (
         <Layout> <>
-            <section>
-
-                <div>
-                    <h1>Sobre Nosotros</h1>
-                    <p>Conocé más sobre nuestro proyecto y nuestra misión
-                    </p>
-                </div>
+            <div>
+                <h1>Sobre Nosotros</h1>
+                <p>Conocé más sobre nuestro proyecto y nuestra misión
+                </p>
+            </div>
+            <section className={styles.contAboutUs}>
                 <div>
                     <h2>
                         🎯Nuestro Proyecto
@@ -41,8 +40,9 @@ const About = () => {
                         Enfoques: Componentes funcionales, Hooks, Context API, formularios controlados y validación en tiempo real.</p>
                 </div>
             </section>
-            <section>
-                <h1>Características técnicas</h1>
+            <h1>Características técnicas</h1>
+            <section className={styles.contTecnicas}>
+
                 <div>
                     <h2>🔐 Autenticación y seguridad</h2>
                     <ul>
