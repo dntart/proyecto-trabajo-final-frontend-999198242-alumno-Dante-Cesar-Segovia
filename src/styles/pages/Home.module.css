@@ -26,14 +26,15 @@
     padding: 3rem 0;
 }
 
-/**/
+/*Caracteristicas del servicio*/
 .contCaract {
     display: flex;
 
     width: 100%;
     gap: 2rem;
 }
-.contCaract h3{
+
+.contCaract h3 {
     color: #333;
 }
 
@@ -62,7 +63,22 @@
     text-align: center;
 }
 
-/**/
+/*search*/
+.contInputSearch {
+    display: block;
+    width: 40rem;
+    height: 4rem;
+    border-radius: 30px;
+    border: solid rgb(228, 228, 228) 1px;
+    padding: 1rem;
+    margin: 0.5rem auto;
+    
+}
+.contInputSearch::placeholder{
+    font-size: large;
+}
+
+/*productos*/
 .productsGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -177,6 +193,7 @@
 .buttons button:hover {
     transform: scale(1.05);
 }
+
 
 @media (max-width: 880px) {
     .productsGrid {

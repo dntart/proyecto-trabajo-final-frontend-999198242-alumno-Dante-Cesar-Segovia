@@ -126,6 +126,7 @@ const Home = () => {
                 </div>
                 <div>
                     <input
+                    className={styles.contInputSearch}
                         type="text"
                         placeholder="Busca productos..."
                         value={search}
