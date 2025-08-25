@@ -88,8 +88,12 @@ const Home = () => {
         } catch (error) {
             console.log(error)
         }
+
     }
 
+    const filteredProducts = products.filter(product =>  // codigo para filtrar productos mediante input
+        product.title.toLowerCase().includes(search.toLowerCase())
+    )
 
     return (
         <>
@@ -126,8 +130,6 @@ const Home = () => {
                         placeholder="Busca productos..."
                         value={search}
                         onChange={(e) => setSearch(e.target.value)} // capturamos value input search
-            
-
                     />
                 </div>
 
@@ -166,7 +168,7 @@ const Home = () => {
                 }
 
                 <div className={styles.productsGrid}>
-                    {products.map((product) =>
+                    {filteredProducts.map((product) =>
                         <div className={styles.productCont} //cont de cada producto
                             key={product.id}>
                             <div className={styles.contImage}>
