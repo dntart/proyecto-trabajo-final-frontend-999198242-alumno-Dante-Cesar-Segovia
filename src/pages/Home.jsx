@@ -120,6 +120,16 @@ const Home = () => {
                     <h2>Nuestros productos</h2>
                     <p>Elegí entre nuestras categorías más populares.</p>
                 </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Busca productos..."
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)} // capturamos value input search
+            
+
+                    />
+                </div>
 
 
                 {showPopup &&
