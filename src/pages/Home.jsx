@@ -15,6 +15,7 @@ const Home = () => {
     const [descriptionEdit, setDescriptionEdit] = useState("")
     const [categoryEdit, setCategoryEdit] = useState("")
     const [imageEdit, setImageEdit] = useState("")
+    const [search, setSearch] = useState("") // para determinar valor del buscador
 
 
     const fetchingProducts = async () => {

@@ -35,6 +35,9 @@ const Register = () => {
             setError("Las contraseñas no coinciden")
             return
         }
+        if (password.length < 6) {
+            setError("La contraseña debe tener como minimo 6 caracteres")
+        }
         const newUser = {
             username, // username: username, // si el nombre del estado es el mismo puede usarse directamente 
             email, // email: email, // si el nombre del estado es el mismo puede usarse directamente 
@@ -65,7 +68,9 @@ const Register = () => {
                             onSubmit={handleSubmit}>
                             <div>
                                 <label>Username:</label>
-                                <input type="text"
+                                <input
+                                    type="text"
+                                    placeholder="Ingresa tu nombre de usuario"
                                     onChange={handleUsername}
                                     // onChange={(e) => {setUsername(e.target.value); console.log("holaaa") }}
                                     value={username} // limpiamos input
@@ -73,21 +78,27 @@ const Register = () => {
                             </div>
                             <div>
                                 <label>Correo electronico:</label>
-                                <input type="text"
+                                <input
+                                    type="text"
+                                    placeholder="tu@gmail.com"
                                     onChange={(e) => handleEmail(e)} // opcion 2 repitiendo funcion e invocando handle..
                                     value={email} // limpiamos input
                                 />
                             </div>
                             <div>
                                 <label>Contraseña:</label>
-                                <input type="password"
+                                <input
+                                    type="password"
+                                    placeholder="Minimo 6 caracteres"
                                     onChange={(e) => setPassword(e.target.value)} // opcion 3 en linea
                                     value={password} // limpiamos input
                                 />
                             </div>
                             <div>
                                 <label>Confirmar contraseña:</label>
-                                <input type="password"
+                                <input
+                                    type="password"
+                                    placeholder="Repite tu contraseña"
                                     onChange={(e) => setConfirmPassword(e.target.value)} // opcion 3 en linea
                                     value={confirmPassword} // limpiamos input
                                 />
